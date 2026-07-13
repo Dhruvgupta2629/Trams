@@ -25,10 +25,10 @@ function OffersSection() {
         {offerItems.map((item, index) => (
           <div
             key={item.index}
-            className="animate-fade-up relative grid gap-4 py-7 pl-6 text-zinc-900 md:grid-cols-[1fr_auto] md:items-center"
+            className="animate-fade-up hover-lift relative grid gap-4 py-7 pl-6 text-zinc-900 md:grid-cols-[1fr_auto] md:items-center"
             style={{ "--delay": `${120 + index * 90}ms` }}
           >
-            <div className="absolute left-0 top-7 h-3 w-3 rounded-full bg-gradient-to-br from-fuchsia-500 via-violet-500 to-cyan-400 shadow-[0_0_12px_rgba(236,72,153,0.35)]" />
+            <div className="animate-glow absolute left-0 top-7 h-3 w-3 rounded-full bg-gradient-to-br from-fuchsia-500 via-violet-500 to-cyan-400 shadow-[0_0_12px_rgba(236,72,153,0.35)]" />
             <div className="text-lg uppercase tracking-[0.12em] text-zinc-700">
               {item.index} / {item.eyebrow}
             </div>

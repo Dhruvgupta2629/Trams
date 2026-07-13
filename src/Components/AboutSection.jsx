@@ -24,7 +24,7 @@ function AboutSection({ onNavigate }) {
         </p>
         <a
           href="#services"
-          className="animate-fade-up mt-5 inline-block border-b border-zinc-900 pb-1 text-base font-semibold uppercase tracking-[0.16em] text-zinc-900 transition hover:text-violet-600"
+          className="animate-fade-up hover-lift mt-5 inline-block border-b border-zinc-900 pb-1 text-base font-semibold uppercase tracking-[0.16em] text-zinc-900 transition hover:text-violet-600"
           style={{ "--delay": "240ms" }}
           onClick={onNavigate}
         >
@@ -37,7 +37,7 @@ function AboutSection({ onNavigate }) {
         <div className="animate-drift absolute right-2 top-1/2 h-36 w-24 -translate-y-1/2 rounded-[40%_60%_48%_52%] bg-gradient-to-b from-fuchsia-500 via-violet-600 to-indigo-700 opacity-95 shadow-[0_12px_30px_rgba(139,92,246,0.35)] sm:h-48 sm:w-28" />
         <div className="animate-float-soft absolute -left-4 top-4 hidden h-16 w-16 rounded-full border border-pink-300/70 bg-[radial-gradient(circle,rgba(251,207,232,0.8),transparent_70%)] lg:block" />
         <div className="animate-drift absolute -right-2 bottom-4 hidden h-20 w-20 rounded-[2rem] bg-gradient-to-br from-amber-300 via-orange-300 to-fuchsia-400 shadow-[0_10px_25px_rgba(249,115,22,0.2)] lg:block" />
-        <div className="animate-float-soft relative h-72 w-72 overflow-hidden rounded-full border border-zinc-200 bg-zinc-100 shadow-[0_20px_40px_rgba(0,0,0,0.12)] sm:h-80 sm:w-80 lg:h-[22rem] lg:w-[22rem]">
+        <div className="animate-pulse-scale animate-float-soft relative h-72 w-72 overflow-hidden rounded-full border border-zinc-200 bg-zinc-100 shadow-[0_20px_40px_rgba(0,0,0,0.12)] sm:h-80 sm:w-80 lg:h-[22rem] lg:w-[22rem]">
           <img
             className="h-full w-full object-cover"
             src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?auto=format&fit=crop&w=900&q=80"

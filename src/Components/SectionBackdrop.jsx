@@ -1,3 +1,5 @@
+import { useEffect, useState } from "react";
+
 const variants = {
   hero: (
     <>
@@ -55,12 +57,31 @@ const variants = {
 };
 
 function SectionBackdrop({ variant = "hero", className = "" }) {
+  const [pointer, setPointer] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMove = (event) => {
+      setPointer({ x: event.clientX, y: event.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMove);
+    return () => window.removeEventListener("mousemove", handleMove);
+  }, []);
+
+  const offsetX = (pointer.x / window.innerWidth - 0.5) * 18;
+  const offsetY = (pointer.y / window.innerHeight - 0.5) * 18;
+
   return (
     <div
       aria-hidden="true"
       className={`pointer-events-none absolute inset-0 overflow-hidden ${className}`}
     >
-      {variants[variant] ?? null}
+      <div
+        className="absolute inset-0"
+        style={{ transform: `translate(${offsetX * 0.3}px, ${offsetY * 0.2}px)` }}
+      >
+        {variants[variant] ?? null}
+      </div>
     </div>
   );
 }

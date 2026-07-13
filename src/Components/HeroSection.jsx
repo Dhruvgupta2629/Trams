@@ -38,12 +38,12 @@ function HeroSection() {
           clarity. The layout stays editorial, but the structure now behaves
           like a maintainable full-screen site.
         </p>
-        <div className="animate-fade-up" style={{ "--delay": "380ms" }}>
+        <div className="animate-fade-up hover-lift" style={{ "--delay": "380ms" }}>
           <TypewriterLine />
         </div>
 
         <div
-          className="animate-fade-up"
+          className="animate-fade-up hover-lift"
           style={{ "--delay": "480ms" }}
         >
           <AvatarGroup />

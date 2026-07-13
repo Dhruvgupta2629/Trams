@@ -1,4 +1,20 @@
+import { useEffect, useState } from "react";
+
 function BackgroundArt() {
+  const [pointer, setPointer] = useState({ x: 0, y: 0 });
+
+  useEffect(() => {
+    const handleMove = (event) => {
+      setPointer({ x: event.clientX, y: event.clientY });
+    };
+
+    window.addEventListener("mousemove", handleMove);
+    return () => window.removeEventListener("mousemove", handleMove);
+  }, []);
+
+  const offsetX = (pointer.x / window.innerWidth - 0.5) * 20;
+  const offsetY = (pointer.y / window.innerHeight - 0.5) * 20;
+
   return (
     <div aria-hidden="true" className="pointer-events-none absolute inset-0 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_12%,rgba(255,255,255,0.08),transparent_18%),radial-gradient(circle_at_50%_40%,rgba(255,255,255,0.05),transparent_28%),linear-gradient(180deg,#242424_0%,#111_100%)]" />
@@ -20,31 +36,52 @@ function BackgroundArt() {
         <div className="absolute inset-3 rounded-full border border-fuchsia-300/60" />
       </div>
 
-      <div className="animate-float-soft absolute right-[4%] top-24 h-14 w-8 rounded-[60%_40%_60%_40%] bg-gradient-to-b from-violet-300 via-fuchsia-400 to-violet-700 opacity-85" />
+      <div className="animate-pulse-scale absolute right-[4%] top-24 h-14 w-8 rounded-[60%_40%_60%_40%] bg-gradient-to-b from-violet-300 via-fuchsia-400 to-violet-700 opacity-85" />
 
       <div className="absolute right-[14%] top-[8rem] hidden h-20 w-20 rounded-full bg-[radial-gradient(circle,rgba(248,113,113,0.35)_0%,rgba(248,113,113,0.08)_45%,transparent_70%)] lg:block" />
 
-      <div className="absolute left-[5%] top-[12rem] hidden h-px w-[24rem] rotate-[-12deg] bg-gradient-to-r from-transparent via-pink-400/70 to-transparent lg:block" />
-      <div className="absolute right-[8%] top-[20rem] hidden h-px w-[18rem] rotate-[16deg] bg-gradient-to-r from-transparent via-cyan-400/70 to-transparent lg:block" />
-      <div className="absolute left-[16%] top-[33rem] hidden h-px w-[20rem] rotate-[8deg] bg-gradient-to-r from-transparent via-amber-300/70 to-transparent lg:block" />
-      <div className="absolute right-[12%] top-[44rem] hidden h-px w-[16rem] rotate-[-10deg] bg-gradient-to-r from-transparent via-fuchsia-400/70 to-transparent lg:block" />
+      <div
+        className="animate-[drift_9s_ease-in-out_infinite] absolute left-[5%] top-[12rem] hidden h-px w-[24rem] rotate-[-12deg] bg-gradient-to-r from-transparent via-pink-400/70 to-transparent lg:block"
+        style={{ transform: `translate(${offsetX * 0.6}px, ${offsetY * 0.5}px) rotate(-12deg)` }}
+      />
+      <div
+        className="animate-[drift_11s_ease-in-out_infinite] absolute right-[8%] top-[20rem] hidden h-px w-[18rem] rotate-[16deg] bg-gradient-to-r from-transparent via-cyan-400/70 to-transparent lg:block"
+        style={{ transform: `translate(${-offsetX * 0.5}px, ${offsetY * 0.4}px) rotate(16deg)` }}
+      />
+      <div
+        className="animate-[drift_10s_ease-in-out_infinite] absolute left-[16%] top-[33rem] hidden h-px w-[20rem] rotate-[8deg] bg-gradient-to-r from-transparent via-amber-300/70 to-transparent lg:block"
+        style={{ transform: `translate(${offsetX * 0.4}px, ${-offsetY * 0.3}px) rotate(8deg)` }}
+      />
+      <div className="animate-[drift_8s_ease-in-out_infinite] absolute right-[12%] top-[44rem] hidden h-px w-[16rem] rotate-[-10deg] bg-gradient-to-r from-transparent via-fuchsia-400/70 to-transparent lg:block" />
 
-      <div className="absolute left-[8%] top-[24rem] hidden h-24 w-24 rounded-full border border-pink-400/30 lg:block" />
-      <div className="absolute right-[18%] top-[35rem] hidden h-16 w-16 rounded-full border border-cyan-400/30 lg:block" />
+      <div
+        className="animate-[pulse-scale_5s_ease-in-out_infinite] absolute left-[8%] top-[24rem] hidden h-24 w-24 rounded-full border border-pink-400/30 lg:block"
+        style={{ transform: `translate(${offsetX * 0.35}px, ${offsetY * 0.3}px)` }}
+      />
+      <div
+        className="animate-[pulse-scale_6s_ease-in-out_infinite] absolute right-[18%] top-[35rem] hidden h-16 w-16 rounded-full border border-cyan-400/30 lg:block"
+        style={{ transform: `translate(${-offsetX * 0.25}px, ${-offsetY * 0.4}px)` }}
+      />
 
-      <svg className="absolute left-[2%] top-[26rem] hidden h-40 w-40 opacity-80 lg:block" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg className="animate-[float-soft_7s_ease-in-out_infinite] absolute left-[2%] top-[26rem] hidden h-40 w-40 opacity-80 lg:block" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M20 150C50 90 110 60 175 35" stroke="rgba(244,114,182,0.7)" strokeWidth="2" strokeLinecap="round" />
         <path d="M35 170C72 125 122 110 180 86" stroke="rgba(56,189,248,0.55)" strokeWidth="2" strokeLinecap="round" />
       </svg>
 
-      <svg className="absolute right-[3%] bottom-[16rem] hidden h-44 w-44 opacity-80 lg:block" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <svg className="animate-[float-soft_8s_ease-in-out_infinite] absolute right-[3%] bottom-[16rem] hidden h-44 w-44 opacity-80 lg:block" viewBox="0 0 220 220" fill="none" xmlns="http://www.w3.org/2000/svg">
         <path d="M28 185C75 145 118 118 192 52" stroke="rgba(251,191,36,0.6)" strokeWidth="2.4" strokeLinecap="round" />
         <path d="M56 196C92 166 136 143 188 100" stroke="rgba(168,85,247,0.6)" strokeWidth="2.4" strokeLinecap="round" />
       </svg>
 
-      <div className="animate-drift absolute right-10 top-[27rem] h-0 w-0 border-l-[30px] border-l-transparent border-r-[30px] border-r-transparent border-b-[52px] border-b-violet-500/80" />
+      <div
+        className="animate-wobble absolute right-10 top-[27rem] h-0 w-0 border-l-[30px] border-l-transparent border-r-[30px] border-r-transparent border-b-[52px] border-b-violet-500/80"
+        style={{ transform: `translate(${offsetX * 0.8}px, ${offsetY * 0.6}px)` }}
+      />
 
-      <div className="absolute right-[18%] top-[39rem] hidden h-24 w-24 rotate-45 rounded-[2rem] bg-gradient-to-br from-orange-300 via-pink-300 to-fuchsia-500 opacity-70 lg:block" />
+      <div
+        className="animate-[wobble-slow_8s_ease-in-out_infinite] absolute right-[18%] top-[39rem] hidden h-24 w-24 rotate-45 rounded-[2rem] bg-gradient-to-br from-orange-300 via-pink-300 to-fuchsia-500 opacity-70 lg:block"
+        style={{ transform: `translate(${-offsetX * 0.6}px, ${offsetY * 0.7}px) rotate(45deg)` }}
+      />
 
       <div
         className="animate-float-soft absolute left-[6%] top-[41rem] h-0 w-0 border-l-[34px] border-l-transparent border-r-[34px] border-r-transparent border-b-[58px] border-b-rose-400/80"
@@ -55,7 +92,7 @@ function BackgroundArt() {
         <div className="absolute inset-4 rounded-full bg-[conic-gradient(from_0deg,rgba(255,255,255,0.45),rgba(168,85,247,0.55),rgba(244,114,182,0.5),rgba(255,255,255,0.45))]" />
       </div>
 
-      <div className="absolute right-[7%] bottom-[18rem] h-14 w-14 rotate-45 bg-[conic-gradient(from_45deg,rgba(244,114,182,0.9),rgba(168,85,247,0.95),rgba(236,72,153,0.9),rgba(244,114,182,0.9))] opacity-70" />
+      <div className="animate-[wobble-slow_7s_ease-in-out_infinite] absolute right-[7%] bottom-[18rem] h-14 w-14 rotate-45 bg-[conic-gradient(from_45deg,rgba(244,114,182,0.9),rgba(168,85,247,0.95),rgba(236,72,153,0.9),rgba(244,114,182,0.9))] opacity-70" />
 
       <div className="absolute left-[10%] bottom-[11rem] hidden h-24 w-24 rounded-[35%_65%_38%_62%] border border-white/18 lg:block">
         <div className="absolute inset-3 rounded-[35%_65%_38%_62%] bg-[radial-gradient(circle_at_30%_30%,rgba(255,255,255,0.35),transparent_60%)]" />

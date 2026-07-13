@@ -10,7 +10,7 @@ function ServicesSection({ onNavigate }) {
         <div className="animate-float-soft absolute -left-3 top-4 hidden h-20 w-20 rounded-full border border-emerald-300/70 bg-[radial-gradient(circle,rgba(187,247,208,0.85),transparent_70%)] lg:block" />
         <div className="animate-float-soft absolute left-6 top-8 hidden h-10 w-10 rounded-full bg-gradient-to-br from-orange-300 via-rose-300 to-pink-400 shadow-[0_8px_18px_rgba(244,114,182,0.25)] lg:block" />
         <div className="animate-drift absolute right-2 bottom-2 hidden h-12 w-12 rounded-[1rem] border border-amber-300/70 bg-gradient-to-br from-amber-200/70 to-orange-300/70 lg:block" />
-        <div className="animate-float-soft relative h-72 w-72 overflow-hidden rounded-bl-[5rem] rounded-tr-[5rem] border border-zinc-200 bg-zinc-100 shadow-[0_20px_40px_rgba(0,0,0,0.12)] sm:h-80 sm:w-80 lg:h-[22rem] lg:w-[22rem]">
+        <div className="animate-pulse-scale animate-float-soft relative h-72 w-72 overflow-hidden rounded-bl-[5rem] rounded-tr-[5rem] border border-zinc-200 bg-zinc-100 shadow-[0_20px_40px_rgba(0,0,0,0.12)] sm:h-80 sm:w-80 lg:h-[22rem] lg:w-[22rem]">
           <img
             className="h-full w-full object-cover"
             src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=900&q=80"
@@ -38,7 +38,7 @@ function ServicesSection({ onNavigate }) {
         </p>
         <a
           href="#contact"
-          className="animate-fade-up mt-5 inline-block border-b border-zinc-900 pb-1 text-base font-semibold uppercase tracking-[0.16em] text-zinc-900 transition hover:text-violet-600"
+          className="animate-fade-up hover-lift mt-5 inline-block border-b border-zinc-900 pb-1 text-base font-semibold uppercase tracking-[0.16em] text-zinc-900 transition hover:text-violet-600"
           style={{ "--delay": "240ms" }}
           onClick={onNavigate}
         >
